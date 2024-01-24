@@ -56,8 +56,12 @@ func SetParent(entry, parent *donburi.Entry, keepWorldPosition bool) {
 	if !entry.HasComponent(Transform) {
 		panic("entry does not have transform component")
 	}
+
+	hierarchy.SetParent(entry, parent)
+
 	d := GetTransform(entry)
 	d.hasParent = true
+
 	if keepWorldPosition {
 		parentPos := WorldPosition(parent)
 
