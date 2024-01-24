@@ -40,9 +40,9 @@ It aims to be a feature rich and high performance [ECS](https://en.wikipedia.org
 
 To check all examples, visit [this](https://github.com/yohamta/donburi/tree/master/examples) page.
 
-The bunnymark example was adapted from [mizu](https://github.com/sedyh/mizu)'s code, which is made by [sedyh](https://github.com/sedyh). 
+The bunnymark example was adapted from [mizu](https://github.com/sedyh/mizu)'s code, which is made by [sedyh](https://github.com/sedyh).
 
-<a href="https://github.com/yohamta/donburi/tree/master/examples/bunnymark"> <img width="200" src="https://user-images.githubusercontent.com/1475839/150521292-9d3ec2c9-b96f-4cc1-a778-57dabfbd46b6.gif"></a> <a href="https://github.com/yohamta/donburi/tree/master/examples/platformer"> <img width="200" src="./examples/platformer/assets/images/example.gif"></a> 
+<a href="https://github.com/yohamta/donburi/tree/master/examples/bunnymark"> <img width="200" src="https://user-images.githubusercontent.com/1475839/150521292-9d3ec2c9-b96f-4cc1-a778-57dabfbd46b6.gif"></a> <a href="https://github.com/yohamta/donburi/tree/master/examples/platformer"> <img width="200" src="./examples/platformer/assets/images/example.gif"></a>
 
 ## Installation
 
@@ -100,7 +100,7 @@ Components can be added and removed through `Entry` objects.
 ```go
 // Fetch the first entity with PlayerTag component
 query := donburi.NewQuery(filter.Contains(PlayerTag))
-// Query.First() returns only the first entity that 
+// Query.First() returns only the first entity that
 // matches the query.
 if entry, ok := query.First(world); ok {
   donburi.Add(entry, Position, &PositionData{
@@ -170,7 +170,7 @@ query.Each(world, func(entry *donburi.Entry) {
   // An entry is an accessor to entity and its components.
   position := Position.Get(entry)
   velocity := Velocity.Get(entry)
-  
+
   position.X += velocity.X
   position.Y += velocity.Y
 })
@@ -209,23 +209,23 @@ query.Each(world, func(entry *donburi.Entry) {
   // We'll always be able to access Position and Size
   position := Position.Get(entry)
   size := Size.Get(entry)
-  
-  
+
+
   if entry.HasComponent(Sprite) {
     sprite := Sprite.Get(entry)
     // .. do sprite things
   }
-  
+
   if entry.HasComponent(Text) {
     text := Text.Get(entry)
     // .. do text things
   }
-  
+
   if entry.HasComponent(Shape) {
     shape := Shape.Get(entry)
     // .. do shape things
   }
-  
+
 })
 
 ```
@@ -362,11 +362,11 @@ See the [GoDoc](https://pkg.go.dev/github.com/yohamta/donburi/features/math) for
 
 ### Transform
 
-The [transofrm package](https://github.com/yohamta/donburi/tree/main/features/transform) provides the `Tranform` Component and helpers.
+The [transform package](https://github.com/yohamta/donburi/tree/main/features/transform) provides the `Tranform` Component and helpers.
 
 It allows us to handle `position`, `rotation`, `scale` data relative to the parent.
 
-This package was adapted from [ariplane](https://github.com/m110/airplanes)'s code, which is created by [m110](https://github.com/m110). 
+This package was adapted from [airplane](https://github.com/m110/airplanes)'s code, which is created by [m110](https://github.com/m110).
 
 For example:
 ```go
@@ -414,7 +414,7 @@ transform.RemoveRecursive(parent)
 
 The [events package](https://pkg.go.dev/github.com/yohamta/donburi/features/events) allows us to send arbitrary data between systems in a Type-safe manner.
 
-This package was adapted from [ariplane](https://github.com/m110/airplanes)'s code, which is created by [m110](https://github.com/m110). 
+This package was adapted from [airplane](https://github.com/m110/airplanes)'s code, which is created by [m110](https://github.com/m110).
 
 For example:
 ```go
